@@ -1,0 +1,74 @@
+.ds-RegularBtn {
+  font-size: 14px;
+  font-weight: 500;
+
+  &-icon {
+    color: $-cool-gray-3;
+    svg {
+      height: 100%;
+      width: 100%;
+      fill: $-cool-gray-3;
+    }
+  }
+  &.isDark {
+    color: #fff;
+    background-color: #000;
+    .ds-RegularBtn-icon {
+      svg {
+        fill: white;
+      }
+      color: white;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+  }
+  &.isDisabled {
+    opacity: 0.33;
+    pointer-events: none;
+  }
+}
+
+.bouncy-bg {
+  position: relative;
+
+  &::after {
+    @include transition(all, 250ms);
+    @extend .d-100, .max-w, .max-h;
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: center;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: $-cool-gray-4;
+    z-index: 1;
+  }
+
+  &.force {
+    &::after {
+      opacity: 0.1;
+      transform: scale(1);
+    }
+  }
+
+  &:hover,
+  &.active {
+    &::after {
+      opacity: 0.1;
+      transform: scale(1);
+    }
+  }
+  &:active {
+    &::after {
+      opacity: 0.066;
+      transform: scale(0.95);
+    }
+  }
+}

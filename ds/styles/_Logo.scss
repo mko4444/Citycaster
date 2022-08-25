@@ -1,0 +1,9 @@
+.ds-Logo {
+  @extend .d-100;
+  cursor: pointer;
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: $-light-black;
+  }
+}
