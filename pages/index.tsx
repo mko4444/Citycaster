@@ -9,24 +9,33 @@ export default function Home() {
     <div style={{ padding: 0, margin: "0 auto", maxWidth: 640 }}>
       <Header />
       <Divider />
-      <City
-        searchTerm="sf"
-        name="San Francisco"
-        telegram="https://t.me/+93pjwpNQjqMzYTkx"
-      />
-      <Divider />
-      <City
-        searchTerm="nyc"
-        name="New York City"
-        telegram="https://t.me/+q1B0AMoQDHAzNzQx"
-      />
-      <Divider />
-      <City
-        searchTerm="la"
-        name="Los Angeles"
-        telegram="https://t.me/+LDc4k0mqTZI1NzRh"
-      />
-      <Divider />
+      {[
+        {
+          searchTerm: "sf",
+          name: "San Francisco",
+          telegram: "https://t.me/+93pjwpNQjqMzYTkx",
+        },
+        {
+          searchTerm: "nyc",
+          name: "New York City",
+          telegram: "https://t.me/+q1B0AMoQDHAzNzQx",
+        },
+        {
+          searchTerm: "la",
+          name: "Los Angeles",
+          telegram: "https://t.me/+LDc4k0mqTZI1NzRh",
+        },
+        {
+          searchTerm: "miami",
+          name: "Miami",
+          telegram: "https://t.me/+2auKIaRNTiMwYTIx",
+        },
+      ].map((city: City) => (
+        <>
+          <City key={city.name} {...city} />
+          <Divider key={city.name + "-divider"} />
+        </>
+      ))}
       <Attribution />
     </div>
   );
