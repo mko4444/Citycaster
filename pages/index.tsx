@@ -33,7 +33,7 @@ export default function Home() {
         {
           searchTerm: "toronto",
           name: "Toronto",
-          telegram: "https://t.me/+MdKihyicrzwyMDIx",
+          telegram: "https://t.me/+CflD_nqrkdZjYjEx",
         },
       ].map((city: City) => (
         <>
