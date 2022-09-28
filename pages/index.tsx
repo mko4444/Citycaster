@@ -38,7 +38,12 @@ export default function Home() {
         {
           searchTerm: "london",
           name: "London",
-          telegram: "https://t.me/+JYMSOD6lqKUzOWU0 ",
+          telegram: "https://t.me/+JYMSOD6lqKUzOWU0",
+        },
+        {
+          searchTerm: "bali",
+          name: "Bali",
+          telegram: "https://t.me/+HbT9g_vpE_UxMDYx",
         },
       ].map((city: City) => (
         <>
