@@ -45,6 +45,11 @@ export default function Home() {
           name: "Bali",
           telegram: "https://t.me/+HbT9g_vpE_UxMDYx",
         },
+        {
+          searchTerm: "paris",
+          name: "Paris",
+          telegram: "https://t.me/+2k4yKNmYXfhlMDQ0",
+        },
       ].map((city: City) => (
         <>
           <City key={city.name} {...city} />
