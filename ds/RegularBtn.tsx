@@ -6,6 +6,7 @@ import Link from "next/link";
 const RegularBtn = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      id,
       children,
       className = "",
       description = "",
@@ -37,6 +38,7 @@ const RegularBtn = forwardRef<HTMLButtonElement, ButtonProps>(
             ...style,
           }}
           ref={ref}
+          id={id}
         >
           {icon &&
             (icon && (typeof icon !== "string" || icon?.length === 1) ? (
@@ -90,6 +92,7 @@ const spanStyle: any = {
 };
 
 type ButtonProps = {
+  id?: string;
   children?: React.ReactNode;
   description?: string;
   className?: any;

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import cities from "cities";
+import copy from "copy-to-clipboard";
 
 export default function Home() {
   return (
@@ -98,6 +99,23 @@ const City = ({ name, telegram, directory, events, searchTerms }: CityType): JSX
         <Link href={events || "/"}>
           <RegularBtn isDisabled={!events}>Events</RegularBtn>
         </Link>
+      )}
+      {searchTerms && (
+        <RegularBtn
+          onClick={() => {
+            copy(`https://citycaster.xyz/${searchTerms[0]}`);
+            const el = document.getElementById("button-" + searchTerms[0]);
+
+            if (el) {
+              el.innerText = "Copied ✓";
+              setTimeout(() => (el.innerText = "Copy"), 1000);
+            }
+          }}
+          id={"button-" + searchTerms[0]}
+          style={{ opacity: 0.5 }}
+        >
+          Copy
+        </RegularBtn>
       )}
       {searchTerms && (
         <Link
