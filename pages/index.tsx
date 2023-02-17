@@ -3,73 +3,18 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import cities from "cities";
 
 export default function Home() {
   return (
     <div style={{ padding: 0, margin: "0 auto", maxWidth: 640 }}>
       <Header />
       <Divider />
-      {[
-        {
-          searchTerm: "sf",
-          name: "San Francisco",
-          telegram: "https://t.me/+93pjwpNQjqMzYTkx",
-        },
-        {
-          searchTerm: "nyc",
-          name: "New York City",
-          telegram: "https://t.me/+q1B0AMoQDHAzNzQx",
-        },
-        {
-          searchTerm: "la",
-          name: "Los Angeles",
-          telegram: "https://t.me/+LDc4k0mqTZI1NzRh",
-        },
-        {
-          searchTerm: "miami",
-          name: "Miami",
-          telegram: "https://t.me/+2auKIaRNTiMwYTIx",
-        },
-        {
-          searchTerm: "toronto",
-          name: "Toronto",
-          telegram: "https://t.me/+CflD_nqrkdZjYjEx",
-        },
-        {
-          searchTerm: "london",
-          name: "London",
-          telegram: "https://t.me/+JYMSOD6lqKUzOWU0",
-        },
-        {
-          searchTerm: "bali",
-          name: "Bali",
-          telegram: "https://t.me/+HbT9g_vpE_UxMDYx",
-        },
-        {
-          searchTerm: "paris",
-          name: "Paris",
-          telegram: "https://t.me/+2k4yKNmYXfhlMDQ0",
-        },
-        {
-          searchTerm: "boston",
-          name: "Boston",
-          telegram: "https://t.me/+yVw2nQgqM0A4YWVh",
-        },
-        {
-          searchTerm: "tel-aviv",
-          name: "Tel Aviv",
-          telegram: "https://t.me/telavivcasters",
-        },
-        {
-          searchTerm: "berlin",
-          name: "Berlin",
-          telegram: "https://t.me/+yYtlbqJipuYwZDg0",
-        },
-      ].map((city: City) => (
-        <>
-          <City key={city.name} {...city} />
-          <Divider key={city.name + "-divider"} />
-        </>
+      {cities.map((city: CityType) => (
+        <div key={city.name}>
+          <City {...city} />
+          <Divider />
+        </div>
       ))}
       <Attribution />
     </div>
@@ -135,7 +80,7 @@ const Header = () => (
   </div>
 );
 
-const City = ({ name, telegram, directory, events, searchTerm }: City): JSX.Element => (
+const City = ({ name, telegram, directory, events, searchTerms }: CityType): JSX.Element => (
   <div className="city row-sb-c max-w" style={{ padding: "0 8px 0 20px", userSelect: "none" }}>
     <h2 style={{ fontSize: 18, margin: 0 }}>{name}</h2>
     <div className="row btns">
@@ -154,9 +99,14 @@ const City = ({ name, telegram, directory, events, searchTerm }: City): JSX.Elem
           <RegularBtn isDisabled={!events}>Events</RegularBtn>
         </Link>
       )}
-      {searchTerm && (
-        <Link href={`https://searchcaster.xyz/search?text=${searchTerm.toLowerCase().replace(" ", "%20")}`}>
-          <RegularBtn isDisabled={!searchTerm} icon={search} />
+      {searchTerms && (
+        <Link
+          href={`https://searchcaster.xyz/search?text=${searchTerms[0]
+            .toLowerCase()
+            .replace("-", " ")
+            .replace(" ", "%20")}`}
+        >
+          <RegularBtn isDisabled={!searchTerms[0]} icon={search} />
         </Link>
       )}
     </div>
@@ -164,18 +114,18 @@ const City = ({ name, telegram, directory, events, searchTerm }: City): JSX.Elem
 );
 
 const Attribution = () => (
-  <Link href="farcaster://profiles/0x98D3535e89DC822f10F2E0Fa945791323648b4eb">
-    <RegularBtn style={{ marginLeft: 8 }}>
+  <Link href="https://fcast.me/matthew">
+    <RegularBtn style={{ marginLeft: 8, marginBottom: 8 }}>
       <span style={{ marginRight: 4, opacity: 0.5 }}>Built by </span>
       <span style={{ opacity: 0.8 }}>@matthew</span>
     </RegularBtn>
   </Link>
 );
 
-type City = {
+type CityType = {
   name: string;
   telegram?: string;
   directory?: string;
   events?: string;
-  searchTerm?: string;
+  searchTerms?: string[];
 };
