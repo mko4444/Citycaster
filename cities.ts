@@ -89,6 +89,11 @@ const cities = [
     name: "🇮🇳 Chennai",
     telegram: "https://t.me/+OxxSKpdSDhViYmM1",
   },
+  {
+    searchTerms: ["taipei", "taiwan"],
+    name: "🇹🇼 Taipei",
+    telegram: "https://t.me/+9_c-38GMFtE3YjMx",
+  },
 ];
 
 export default cities;
