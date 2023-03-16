@@ -94,6 +94,16 @@ const cities = [
     name: "🇹🇼 Taipei",
     telegram: "https://t.me/+9_c-38GMFtE3YjMx",
   },
+  {
+    searchTerms: ["shanghai"],
+    name: "🇨🇳 Shanghai",
+    telegram: "https://t.me/+lEmqmjVxFzE4ZWMx",
+  },
+  {
+    searchTerms: ["hong-kong", "hk"],
+    name: "🇭🇰 Hong Kong",
+    telegram: "https://t.me/+YJs3N4gm_lphYjMx",
+  },
 ];
 
 export default cities;
