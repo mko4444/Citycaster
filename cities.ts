@@ -104,6 +104,11 @@ const cities = [
     name: "🇭🇰 Hong Kong",
     telegram: "https://t.me/+YJs3N4gm_lphYjMx",
   },
+  {
+    searchTerms: ["new-delhi", "ncr"],
+    name: "🇮🇳 New Delhi / NCR",
+    telegram: "https://t.me/farcasters",
+  },
 ];
 
 export default cities;
