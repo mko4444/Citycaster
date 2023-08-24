@@ -119,6 +119,11 @@ const cities = [
     name: "🇮🇳 Bangalore / BLR",
     telegram: "https://t.me/BLRcasters",
   },
+  {
+    searchTerms: ["lisbon"],
+    name: "🇵🇹 Lisbon",
+    telegram: "https://t.me/+gsfqHUeKf_JiNjNi",
+  },
 ];
 
 export default cities;
